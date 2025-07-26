@@ -136,16 +136,13 @@ ggplot(gapminder_2007, aes(x = gdpPercap, y = lifeExp, color = continent)) +
   geom_point(size = 3, alpha = 0.7) +
   scale_x_log10() +
   labs(title = "GDP per Capita vs Life Expectancy (2007)",
-       x = "GDP per Capita (log scale)", y = "Life Expectancy") +
-  theme_minimal()
+       x = "GDP per Capita (log scale)", y = "Life Expectancy")
 
 # Boxplot
 ggplot(gapminder_2007, aes(x = continent, y = lifeExp, fill = continent)) +
   geom_boxplot() +
   labs(title = "Life Expectancy by Continent (2007)",
-       x = "Continent", y = "Life Expectancy") +
-  theme_minimal()
-
+       x = "Continent", y = "Life Expectancy")
 # Line plot
 gapminder %>%
   group_by(year, continent) %>%
@@ -153,8 +150,7 @@ gapminder %>%
   ggplot(aes(x = year, y = mean_lifeExp, color = continent)) +
   geom_line(size = 1.2) +
   labs(title = "Average Life Expectancy Over Time by Continent",
-       x = "Year", y = "Mean Life Expectancy") +
-  theme_minimal()
+       x = "Year", y = "Mean Life Expectancy")
 ```
 
 ---
