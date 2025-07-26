@@ -1,0 +1,185 @@
+---
+title: "Data Wrangling with the tidyverse – Post-Workshop Notes"
+author: "Cecilia Baldoni"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    toc: true
+    toc_depth: 2
+    number_sections: true
+    code_folding: show
+---
+
+# Introduction
+
+This document accompanies the online workshop **"Data Wrangling with the tidyverse"**, delivered as part of the summer school series for R beginners.
+
+In this session, we explored how to:
+
+- Inspect and explore data
+- Select and filter rows/columns
+- Create new variables and modify existing ones
+- Summarize data with grouping
+- Create basic plots using `ggplot2`
+
+This R Markdown file contains all code used during the session, along with brief explanations and suggested follow-up questions. You can re-run the code, modify it, or expand upon it to reinforce your learning.
+
+---
+
+# Setup
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(gapminder)
+```
+
+---
+
+# Exercise 1: Loading & Exploring Data
+
+Let's start by looking at the dataset.
+
+```{r}
+head(gapminder)
+glimpse(gapminder)
+summary(gapminder)
+gapminder %>% distinct(continent)
+gapminder %>% distinct(year)
+gapminder %>% count(continent)
+```
+
+**Questions:**
+- How many variables are there?
+- What are the variable types?
+- What years are included in the dataset?
+
+---
+
+# Exercise 2: Selecting and Filtering Data
+
+We'll choose a subset of the columns and filter for recent European records.
+
+```{r}
+gapminder_selected <- gapminder %>%
+  select(country, continent, year, lifeExp, gdpPercap)
+
+gapminder_selected %>%
+  filter(continent == "Europe", year > 2000) %>%
+  arrange(desc(lifeExp))
+```
+
+**Questions:**
+- Why might we want to focus on specific columns?
+- Which countries have the highest life expectancy?
+
+---
+
+# Exercise 3: Creating & Modifying Variables
+
+We now add a new variable for total GDP and categorize life expectancy.
+
+```{r}
+gapminder_gdp <- gapminder %>%
+  mutate(gdp_total = gdpPercap * pop)
+
+gapminder_renamed <- gapminder_gdp %>%
+  rename(GDP_per_capita = gdpPercap)
+
+gapminder_categorized <- gapminder_renamed %>%
+  mutate(life_category = case_when(
+    lifeExp < 50 ~ "Low",
+    lifeExp < 70 ~ "Medium",
+    TRUE ~ "High"
+  ))
+
+head(gapminder_categorized)
+```
+
+**Questions:**
+- How are the categories defined?
+- What other useful derived variables could we add?
+
+---
+
+# Exercise 4: Summarizing & Grouping Data
+
+Let’s summarize life expectancy by continent and count countries.
+
+```{r}
+gapminder %>%
+  filter(year == 2007) %>%
+  group_by(continent) %>%
+  summarise(mean_lifeExp = mean(lifeExp))
+
+gapminder %>%
+  group_by(continent) %>%
+  summarise(country_n = n_distinct(country))
+```
+
+**Questions:**
+- Which continent had the highest life expectancy in 2007?
+- Why is grouping important for comparing data?
+
+---
+
+# Bonus: Visualizing Data
+
+We use `ggplot2` to make three quick visual summaries.
+
+```{r}
+gapminder_2007 <- gapminder %>%
+  filter(year == 2007)
+
+# Scatter plot
+ggplot(gapminder_2007, aes(x = gdpPercap, y = lifeExp, color = continent)) +
+  geom_point(size = 3, alpha = 0.7) +
+  scale_x_log10() +
+  labs(title = "GDP per Capita vs Life Expectancy (2007)",
+       x = "GDP per Capita (log scale)", y = "Life Expectancy") +
+  theme_minimal()
+
+# Boxplot
+ggplot(gapminder_2007, aes(x = continent, y = lifeExp, fill = continent)) +
+  geom_boxplot() +
+  labs(title = "Life Expectancy by Continent (2007)",
+       x = "Continent", y = "Life Expectancy") +
+  theme_minimal()
+
+# Line plot
+gapminder %>%
+  group_by(year, continent) %>%
+  summarise(mean_lifeExp = mean(lifeExp)) %>%
+  ggplot(aes(x = year, y = mean_lifeExp, color = continent)) +
+  geom_line(size = 1.2) +
+  labs(title = "Average Life Expectancy Over Time by Continent",
+       x = "Year", y = "Mean Life Expectancy") +
+  theme_minimal()
+```
+
+---
+
+# Further Learning
+
+- [R for Data Science](https://r4ds.had.co.nz/)
+- [Tidyverse Cheatsheet (PDF)](https://github.com/rstudio/cheatsheets/blob/main/data-transformation.pdf)
+- [Gapminder Data](https://www.gapminder.org/data/)
+
+---
+
+# Session Info
+
+```{r}
+sessionInfo()
+```
+
+---
+
+# Optional Challenge
+
+Try applying what you learned to:
+- Create a new variable for population in millions.
+- Summarize GDP by year for Asia.
+- Filter countries with life expectancy under 60 in 1997.
+
+Happy wrangling!
