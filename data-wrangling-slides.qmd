@@ -16,7 +16,7 @@ format:
 Welcome to the "Data Wrangling with `tidyverse` workshop!
 
 :::{.notes}
-"Hi everyone! Welcome to this workshop on Data Wrangling with the tidyverse. I'm really happy to have you all here today. In this session, we'll learn how to clean, transform, and explore data using some of the most useful tools in R."
+Hi everyone! Welcome to this workshop on Data Wrangling with the tidyverse. I'm really happy to have you all here today. In this session, we'll learn how to clean, transform, and explore data using some of the most useful tools in R.
 :::
 
 ## About me
@@ -44,7 +44,7 @@ Welcome to the "Data Wrangling with `tidyverse` workshop!
 ```
 
 :::{.notes}
-"A quick intro about me before we begin. My name is Cecilia Baldoni. I'm a postdoctoral researcher working at the intersection of behavioral ecology and cognitive science. I also love teaching topics like Quarto, Personal Knowledge Management, and Open Science. "If you're curious about my work or want to connect after the workshop, these links are a good place to start."
+A quick intro about me before we begin. My name is Cecilia Baldoni. I'm a postdoctoral researcher working at the intersection of behavioral ecology and cognitive science. I also love teaching topics like Quarto, Personal Knowledge Management, and Open Science. If you're curious about my work or want to connect after the workshop, these links are a good place to start.
 :::
 
 ## What is Data Wrangling?
@@ -57,7 +57,7 @@ Welcome to the "Data Wrangling with `tidyverse` workshop!
   - Summarizing or reshaping tables
 
 :::{.notes}
-"So, what do we mean by 'data wrangling'? It refers to all the steps we take to prepare raw data for analysis. That includes cleaning messy entries, filtering, renaming columns, and even transforming or summarizing tables."
+So, what do we mean by 'data wrangling'? It refers to all the steps we take to prepare raw data for analysis. That includes cleaning messy entries, filtering, renaming columns, and even transforming or summarizing tables.
 :::
 
 ## What is the `tidyverse`?
@@ -73,7 +73,7 @@ Welcome to the "Data Wrangling with `tidyverse` workshop!
 - Unified grammar and syntax
 
 :::{.notes}
-"The tidyverse is a collection of R packages designed for data science. These packages work really well together and follow a unified grammar. Some core packages you’ll encounter are: dplyr for data manipulation, ggplot2 for visualization, readr for importing, and tidyr for reshaping. Even though we won’t use every single package today, you’ll get a feel for how they all share the same structure and syntax."
+The tidyverse is a collection of R packages designed for data science. These packages work really well together and follow a unified grammar. Some core packages you’ll encounter are: dplyr for data manipulation, ggplot2 for visualization, readr for importing, and tidyr for reshaping. Even though we won’t use every single package today, you’ll get a feel for how they all share the same structure and syntax.
 :::
 
 ## Why use the `tidyverse`?
@@ -84,7 +84,7 @@ Welcome to the "Data Wrangling with `tidyverse` workshop!
 -  Well-documented and community-supported
 
 :::{.notes}
-"The tidyverse is popular for good reasons. It uses a very readable syntax — instead of cryptic commands, you get verbs like filter() and mutate(). You can chain multiple steps together using the pipe operator %>%, which we’ll practice together." "Even if you’ve used base R before, I think you’ll find this way of writing code more intuitive and enjoyable."
+The tidyverse is popular for good reasons. It uses a very readable syntax — instead of cryptic commands, you get verbs like filter() and mutate(). You can chain multiple steps together using the pipe operator %>%, which we’ll practice together." "Even if you’ve used base R before, I think you’ll find this way of writing code more intuitive and enjoyable.
 :::
 
 ## Meet our dataset: gapminder
@@ -103,7 +103,7 @@ head(gapminder)
 ```
 
 :::{.notes}
-"We’ll use the gapminder dataset today — a great starter dataset. It contains information about countries over time, including life expectancy, GDP per capita, and population."
+We’ll use the gapminder dataset today — a great starter dataset. It contains information about countries over time, including life expectancy, GDP per capita, and population.
 :::
 
 ## Tidy Data principles
@@ -116,7 +116,7 @@ Visual from [tidyr documentation](https://tidyr.tidyverse.org):
 ![tidy data](https://tidyr.tidyverse.org/logo.png)
 
 :::{.notes}
-"Before diving into wrangling, let’s talk about tidy data. This structure is crucial because most tidyverse functions assume it. In tidy data, each variable gets a column, each observation is a row, and each type of observation goes in a separate table."
+Before diving into wrangling, let’s talk about tidy data. This structure is crucial because most tidyverse functions assume it. In tidy data, each variable gets a column, each observation is a row, and each type of observation goes in a separate table.
 :::
 
 ## Workshop Goals
@@ -130,8 +130,8 @@ You'll learn how to:
 - Visualize: `ggplot2`
 
 :::{.notes}
-"Here's what we’ll accomplish together. We’ll start by exploring the data using functions like glimpse() and summary(). Then we’ll move on to selecting and filtering, creating new variables, summarizing data, and finally visualizing it using ggplot2."
-"This will be a hands-on workshop, so you'll have time to try out each step with me."
+Here's what we’ll accomplish together. We’ll start by exploring the data using functions like glimpse() and summary(). Then we’ll move on to selecting and filtering, creating new variables, summarizing data, and finally visualizing it using ggplot2.
+This will be a hands-on workshop, so you'll have time to try out each step with me.
 :::
 
 ## What You'll Need
@@ -140,9 +140,10 @@ You'll learn how to:
 -  `tidyverse` package installed
 -  A copy of the `.R` script we'll use live
 -  `.Rmd` for follow-up practice
+Here is the [GitHub repo](https://github.com/cecibaldoni/data-wrangling-tidyverse/tree/main) where you can download all!
 
 :::{.notes}
-"Before we begin, please make sure you’ve got RStudio open. You should have the tidyverse package installed. We’ll be using a .R script together, and I’ll share a more polished .Rmd file afterward so you can practice on your own."
+Before we begin, please make sure you’ve got RStudio open. You should have the tidyverse package installed. We’ll be using a .R script together, and I’ll share a more polished .Rmd file afterward so you can practice on your own.
 :::
 
 ## Let’s Begin!
@@ -154,6 +155,6 @@ You'll learn how to:
 Ready? Let’s wrangle 
 
 :::{.notes}
-"Let’s get started! Open the .R script now. I’ll guide you through it step by step." "From here on, I’ll switch to live coding. We’ll work with the gapminder dataset together."
+Let’s get started! Open the .R script now. I’ll guide you through it step by step. From here on, I’ll switch to live coding. We’ll work with the gapminder dataset together.
 :::
 
