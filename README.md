@@ -7,3 +7,7 @@ This repository contains:
 - `data-wrangling-slides.qmd`: Quarto slides used during the workshop 
 - `data-wrangling.R`: R script with basic data wrangling exercises
 - `post-workshop-notes.Rmd`: Solved versions of the exercises discussed after the session
+
+### Slides
+
+You can find the slides [here](https://cecibaldoni.github.io/data-wrangling-tidyverse/#/title-slide)
