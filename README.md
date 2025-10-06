@@ -1,13 +1,30 @@
-## Data wrangling with `tidyverse`
+# Data Wrangling with `tidyverse`
 
-This repository contains script, slide and post-workshop notes from the "Data wrangling with `tidyverse`", held on July 26th as part of the [SARA Institute of Science Summer School 2025](https://sara-edu.netlify.app/summer/2025-r4b/).
+This repository contains scripts, slides, and post-workshop notes from the "**Data Wrangling with `tidyverse`**" workshop held on July 26th as part of the [SARA Institute of Science Summer School 2025](https://sara-edu.netlify.app/summer/2025-r4b/).
 
-This repository contains:
+## Prerequisites
 
-- `data-wrangling-slides.qmd`: Quarto slides used during the workshop 
-- `data-wrangling.R`: R script with basic data wrangling exercises
-- `post-workshop-notes.Rmd`: Solved versions of the exercises discussed after the session
+Before getting started, make sure you have the following:
 
-### Slides
+-   **Software**
+    -   [R](https://cran.r-project.org/)
+    -   [RStudio](https://posit.co/download/rstudio/)
+    -   [Quarto](https://quarto.org/docs/get-started/)
+-   **R Packages**
+    -   `tidyverse`
+    -   `quarto`
+    -   `gapminder`
 
-You can find the slides [here](https://cecibaldoni.github.io/data-wrangling-tidyverse/#/title-slide)
+## Installation
+
+To install the required packages, run the following command in your R console:
+
+\`\`\` r install.packages(c("tidyverse", "gapminder"))
+
+## How to Use This Repository
+
+Start by opening the `data-wrangling.R` script and follow the exercises. The solved versions are available in `post-workshop-notes.Rmd` for reference. You can also explore the workshop slides in `data-wrangling-slides.qmd`.
+
+## License
+
+License information to be added.
